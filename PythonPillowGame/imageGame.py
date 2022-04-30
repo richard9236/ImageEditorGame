@@ -148,7 +148,7 @@ def moshiDenwa(x):
     remoteInt= 0
     for i in range(len(x)):
         remoteInt= remoteInt+ PullFloat(0, 0, len(x))
-    return remoteInt
+    return str(remoteInt)
 
 def RailTarget(dirName):
     found = False
