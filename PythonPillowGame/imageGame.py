@@ -227,7 +227,7 @@ def RailTarget(dirName):
                         i = ImageEnhance.Sharpness(i)
                         n = 0.0
                         print("Enter a float between -2.0 and 2.0")
-                        print("["+dirName +"] blur level: "+ moshiDenwa(i))
+                        print("["+dirName +"] blur level: "+ moshiDenwa(dirName))
                         d("The lower the number, the more blur")
                         while True:
                             n = MightFloat(gettInput())
