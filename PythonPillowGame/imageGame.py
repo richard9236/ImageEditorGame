@@ -142,7 +142,7 @@ def gettListOfStuff():
         if n.endswith(".jpg") or n.endswith(".png"):
             print(f)
 def NewCommandLine():
-    for _ in range(100):
+    for _ in range(150):
         print(" ")
 def moshiDenwa(x):
     remoteInt= 0
@@ -198,6 +198,7 @@ def RailTarget(dirName):
                         n = gettInputValidFolder()
                         SaveTargetAs(i, n, fn, False)
                     elif n == 3:
+                        NewCommandLine()
                         print("Enter an int from -360 to 360 degrees to rotate "+ dirName+" by.")
                         xx = "heh"
                         remoteString = "rotation change"
@@ -206,12 +207,10 @@ def RailTarget(dirName):
                             if xx == 0:
                                 break
                             elif xx != False:
-                                xx = PullFloat(xx, -360, 360)
                                 break
                         
                         print("Rotating by "+ str(xx)+ " degrees.")
                         i = i.rotate(xx)
-                        NewCommandLine()
                         
                         n = gettInputValidFolder()
                         SaveTargetAs(i, n, fn, False)
@@ -255,7 +254,7 @@ def RailTarget(dirName):
         
         NewCommandLine()
         print("Would you like to look at how your "+ remoteString+" affected ["+ dirName+"]?")
-        print("0 - Not right now.")
+        print("[ANY KEY] - Not right now.")
         print("1 - Yes, show it now please.")
         n = MightInt(gettInput())
         if n == 1:
