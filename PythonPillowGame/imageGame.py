@@ -7,17 +7,17 @@ firstRun = True
 tbOfAvailableFolders = ["Beside Python Executable"]
 parentdir = os.getcwd()
 
-def wait(f):
+def wait(f): # this makes the program wait f amount
     time.sleep(f)
-def gettInput():
+def gettInput(): # returns the user input
     x = input(": ")
     return x
     
-def d(s):
+def d(s): # to print out the incoming string but add a delay
     print(s )
     
     wait(len(s)/15.0)
-def PullFloat(x, min, max):
+def PullFloat(x, min, max): # make sure an entered float does not exceed max or lower min paramatrs
     if x < min:
         x = min
     elif x > max:
@@ -25,7 +25,7 @@ def PullFloat(x, min, max):
     
     return x
 
-def BuildFolder(dirName):
+def BuildFolder(dirName): # check if a folder exists and then if not make the folder.
     dirName = dirName +" folder"
     returnThis = dirName
     global tbOfAvailableFolders
@@ -41,7 +41,7 @@ def BuildFolder(dirName):
     
     return returnThis
 
-def gettInputValidFolder():
+def gettInputValidFolder(): # look for valid folders and check if they are valid options
     global tbOfAvailableFolders
     print("Please type a number from 0 to "+ str(len(tbOfAvailableFolders)-1) +", ")
     print("to select a valid folder to save into.")
@@ -58,7 +58,7 @@ def gettInputValidFolder():
             x = PullFloat(x, 0, len(tbOfAvailableFolders)-1)
             break
     return x
-def MightInt(n):
+def MightInt(n): # deteremin if given object is an integer
     if n == "0":
         return 0
     
@@ -70,7 +70,7 @@ def MightInt(n):
         n = "F"
     # return can be int, False or "q"
     return n
-def MightFloat(n):
+def MightFloat(n): # determine if given object is a float
     if n == "0":
         return 0.0
     
@@ -83,7 +83,7 @@ def MightFloat(n):
     # return can be int, False or "q"
     return n
 
-def gettInputOptions(dirName):
+def gettInputOptions(dirName): # ask user for options to apply effects to the picture
     returnThis = False
     remoteBool = False
     print("0 - Turn "+ dirName+" into a png.")
@@ -104,11 +104,11 @@ def gettInputOptions(dirName):
             
             break
     return returnThis
-def SaveTargetAs(i, nameOfLocation, fn, sourceName):
+def SaveTargetAs(i, nameOfLocation, fn, sourceName): # save the target 
     # fext = sourceName = typeOFfILE
     # fn - fileName
     global tbOfAvailableFolders
-    nameOfLocation = tbOfAvailableFolders[nameOfLocation]
+    nameOfLocation = tbOfAvailableFolders[nameOfLocation] # the specified folder
     
     
     NewCommandLine()
@@ -135,22 +135,22 @@ def SaveTargetAs(i, nameOfLocation, fn, sourceName):
     print(fn+ " has been successfully saved in ["+ nameOfLocation+"]!")
     wait(1)
     
-def gettListOfStuff():
+def gettListOfStuff(): # print out valid options that you can edit things
     print("-- Options --")
     for f in os.listdir("."):
         n = f.lower()
         if n.endswith(".jpg") or n.endswith(".png"):
             print(f)
-def NewCommandLine():
+def NewCommandLine(): # make a new command line
     for _ in range(150):
         print(" ")
-def moshiDenwa(x):
+def moshiDenwa(x): # get the fenv value of filed x
     remoteInt= 0
     for i in range(len(x)):
         remoteInt= remoteInt+ PullFloat(0, 0, len(x))
     return str(remoteInt)
 
-def RailTarget(dirName):
+def RailTarget(dirName): # look for the target name. may not always find one
     found = False
     remoteString = "minor change"
     for f in os.listdir("."):
@@ -246,7 +246,7 @@ def RailTarget(dirName):
                     
                 break
     
-    if found ==False:
+    if found ==False: # the project was not found
         print("["+ dirName+ "] not found.")
         print("Please be specific with capital characters")
         wait(2)
@@ -265,7 +265,7 @@ def RailTarget(dirName):
     return found
 linux = ["Black and White", "200x200", "400x400", "600x600", "Rotated"]
 for i in range(len(linux)):
-    BuildFolder(linux[i])
+    BuildFolder(linux[i]) # build the folders accordingly
 
 print("Here, I have the ability to make anything into anything")
 print("Give it a try")
@@ -273,8 +273,8 @@ print("Enter a name of an image file.")
 print("Must be a jpg or png.")
 print("Capital letters count.")
 
-while True:
-    x = gettInput()
+while True: # forever loop
+    x = gettInput() # this is the actual command the user enteres
     if x.lower() == "q":
         break
     elif x.lower() == "/help":
@@ -313,7 +313,7 @@ while True:
         continue
     
     n = RailTarget(x)
-    if n == False:
+    if n == False: # the entered object was not a valid png/jpg
         print("Try [/help] to see your options")
         print("Try [/buildfolder] to create a folder")
         print("Try [/show] to look at an image")
