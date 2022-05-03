@@ -54,7 +54,7 @@ def gettInputValidFolder():
         x = MightInt(gettInput())
         if x == 0:
             break
-        elif x != False:
+        elif x != "F":
             x = PullFloat(x, 0, len(tbOfAvailableFolders)-1)
             break
     return x
@@ -67,7 +67,7 @@ def MightInt(n):
     except:
         d("["+n+ "] not a valid input")
         print("Please enter an integer.")
-        n = False
+        n = "F"
     # return can be int, False or "q"
     return n
 def MightFloat(n):
@@ -98,7 +98,7 @@ def gettInputOptions(dirName):
         if remoteVar == 0:
             returnThis = remoteVar
             break
-        elif remoteVar != False:
+        elif remoteVar != "F":
             # okay, this is an int
             returnThis = remoteVar
             
@@ -187,7 +187,7 @@ def RailTarget(dirName):
                             xx = MightInt(gettInput())
                             print("Enter the y dimension to save "+ dirName+" by.")
                             yy = MightInt(gettInput())
-                            if yy == False or xx == False:
+                            if yy == "F" or xx == "F":
                                 wait(1)
                             else:
                                 break
@@ -206,7 +206,7 @@ def RailTarget(dirName):
                             xx = MightInt(gettInput())
                             if xx == 0:
                                 break
-                            elif xx != False:
+                            elif xx != "F":
                                 break
                         
                         print("Rotating by "+ str(xx)+ " degrees.")
